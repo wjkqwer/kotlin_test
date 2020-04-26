@@ -268,31 +268,117 @@ fun letTest(study: Study?) {
 
 
 fun main2() {
-    paramTest(1, "aaa")
-    paramTest(2)
-    paramTest(str = "bbb", num = 3)
+//    paramTest(1, "aaa")
+//    paramTest(2)
+//    paramTest(str = "bbb", num = 3)
+
+    //标准函数
+//    withTest()
+//    runTest()
+//    applyTest()
+
+    //顶层方法
+    doSomething()
 }
 
 fun paramTest(num: Int, str: String = "abc") {
     println("$num----$str")
 }
 
+/**
+ * with接收两个参数，一个作为上下文，一个lambda，并返回最后一行
+ */
+fun withTest() {
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    val builder = StringBuilder()
+    builder.append("Start eating fruits.\n")
+    for (fruit in list) {
+        builder.append(fruit).append("\n")
+    }
+    builder.append("Ate all fruits.")
+    val result = builder.toString()
+    println(result)
+    println()
 
+    //使用with: 把StringBuilder传到lambda表达式中作为上下文，并返回最后一行
+    val withResult = with(StringBuilder()) {
+        append("Start eating fruits.\n")
+        for (fruit in list) {
+            append(fruit).append("\n")
+        }
+        append("Ate all fruits.")
+        toString()
+    }
+    println(withResult)
+    println()
+}
 
+/**
+ * run函数不能直接调用。接收一个lambda参数，并返回最后一行
+ */
+fun runTest() {
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    val result = StringBuilder().run {
+        append("Start eating fruits.\n")
+        for (fruit in list) {
+            append(fruit).append("\n")
+        }
+        append("Ate all fruits.")
+        toString()
+    }
+    println(result)
+    println()
+}
 
+/**
+ * apply和run相似，只是没有返回值，而且会自动返回调用对象本身
+ */
+fun applyTest() {
+    val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
+    val result = StringBuilder().apply {
+        append("Start eating fruits.\n")
+        for (fruit in list) {
+            append(fruit).append("\n")
+        }
+        append("Ate all fruits.")
+    }
+    println(result.toString())
+    println()
+}
 
+/**
+ * 这样就可以用Util.staticFun1()来调用，不过这样写法会将整个类中所有方法都变成类似于静态方法的调用方式，但其实它并不是静态方法
+ */
+object Util {
+    fun staticFun1() {
+        println("this is static")
+    }
+}
 
+/**
+ * 这样就可以用Util1.staticFun2()来调用，但其实它并不是静态方法
+ */
+class Util1 {
+    companion object {
+        fun staticFun2() {
+            println("this is static2")
+        }
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+/**
+ * 真正做到静态方法
+ * 1、注解 @JvmStatic :只能加在 单例类 或者 companion object中的方法上
+ * 2、顶层方法 Test.kt中的 doSomething()
+ */
+class Util2 {
+    companion object {
+        @JvmStatic
+        fun staticFun3() {
+            println("this is static2")
+        }
+    }
+}
 
 
 
