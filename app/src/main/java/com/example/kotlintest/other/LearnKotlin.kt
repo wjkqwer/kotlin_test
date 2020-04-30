@@ -266,6 +266,21 @@ fun letTest(study: Study?) {
     }
 }
 
+fun letAndAlsoTest() {
+    val person = Person("wjk", 18)
+    person.also {
+        val p = Person("aaa", 1)
+        println("lambda p:$p")
+        2
+    }
+    println("also:" +person)
+    person.let {
+        val p = Person("bbb", 2)
+        println("lambda p:$p")
+        3
+    }
+    println("let:" +person)
+}
 
 fun main2() {
 //    paramTest(1, "aaa")
@@ -278,7 +293,8 @@ fun main2() {
 //    applyTest()
 
     //顶层方法
-    doSomething()
+//    doSomething()
+    letAndAlsoTest()
 }
 
 fun paramTest(num: Int, str: String = "abc") {
