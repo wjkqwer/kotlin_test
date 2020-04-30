@@ -34,7 +34,10 @@ fun main() {
 
 //    listSetMapTest()
 
-//    lambdaTest()
+//    foreachTest()
+    highFunTest()
+
+//    letAndAlsoTest()
 }
 
 fun doStudy(study: Study) {
@@ -185,8 +188,17 @@ fun listSetMapTest() {
     }
 }
 
+fun foreachTest() {
+    val list = listOf(1, 2, 3, 4, 5, 6)
+    list.forEach {
+        println("start value = $it")
+        if (it == 2) return@forEach  //这个return@forEach意思是当2的时候，不往下执行，并不是跳出循环，类型java的continue
+        if (it == 5) return     //跳出循环
+        println("end value = $it")
+    }
+}
 
-fun lambdaTest() {
+fun highFunTest() {
     val list = listOf("aaa", "bbbbb", "cccc", "ddd")
     val maxLengthStr = list.maxBy { it: String -> it.length }
     println(maxLengthStr)
@@ -211,6 +223,36 @@ fun lambdaTest() {
     val allResult = list.all { it.length <= 3 }
     println("any = $anyResult; all = $allResult")
 
+    println("------asSequence")
+
+    //使用asSequence() 和不使用asSequence() 的循环遍历规则是不一样的。不使用会比使用次数多
+    println("--使用asSequence()")
+    val list1 = listOf(1, 2, 3, 4, 5, 6)
+    println(list1.asSequence().filter {
+        println("filter: $it")
+        it > 3
+    }.map {
+        println("map: $it")
+        it * 2
+    }.forEach(::println))
+
+    println("--不使用asSequence()")
+    println(list1.filter {
+        println("filter: $it")
+        it > 3
+    }.map {
+        println("map: $it")
+        it * 2
+    }.forEach(::println))
+
+    println("------flatMap")
+    //flatMap原理去网上查
+    val flatMapResult = list1.flatMap {
+        0 until it      //until 左闭右开 区间
+    }
+    println(flatMapResult)
+
+    //还有sum,reduce,fold等
 }
 
 fun lambdaTest2() {
@@ -268,18 +310,19 @@ fun letTest(study: Study?) {
 
 fun letAndAlsoTest() {
     val person = Person("wjk", 18)
-    person.also {
-        val p = Person("aaa", 1)
-        println("lambda p:$p")
+    println()
+
+    //also是返回调用者自己，与最后一行无关
+    println("also:" + person.also {
+        println("I'm also")
         2
-    }
-    println("also:" +person)
-    person.let {
-        val p = Person("bbb", 2)
-        println("lambda p:$p")
+    })
+
+    //let是返回最后一行
+    println("let:" + person.let {
+        println("I'm let")
         3
-    }
-    println("let:" +person)
+    })
 }
 
 fun main2() {
@@ -294,7 +337,6 @@ fun main2() {
 
     //顶层方法
 //    doSomething()
-    letAndAlsoTest()
 }
 
 fun paramTest(num: Int, str: String = "abc") {
