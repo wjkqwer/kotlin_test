@@ -45,6 +45,7 @@ fun doStudy(study: Study) {
     study.doHomework()
 }
 
+//TODO if
 /**
  * if语句的每一个条件中，最后一行可以直接作为返回值
  */
@@ -82,6 +83,7 @@ fun testIf2(num1: Int, num2: Int) = if (num1 > num2) {
  */
 fun testIf3(num1: Int, num2: Int) = if (num1 > num2) num1 else num2
 
+//TODO when
 /**
  * when 和if类似，也是每一个条件中，最后一行可以直接作为返回值的
  */
@@ -124,7 +126,7 @@ fun whenTest3(name: String) = when {
     else -> "name is none"
 }
 
-
+//TODO 区间
 fun forTest() {
     //左闭右闭 区间
     val range0 = 0..10
@@ -143,9 +145,8 @@ fun forTest() {
     }
 }
 
-
+//TODO list、map各种写法
 fun listSetMapTest() {
-
     //-------------list-------------
     val list1 = ArrayList<String>()
     list1.add("aaa")
@@ -188,6 +189,7 @@ fun listSetMapTest() {
     }
 }
 
+//TODO foreach
 fun foreachTest() {
     val list = listOf(1, 2, 3, 4, 5, 6)
     list.forEach {
@@ -198,6 +200,7 @@ fun foreachTest() {
     }
 }
 
+//TODO filter/any/all/asSequence()
 fun highFunTest() {
     val list = listOf("aaa", "bbbbb", "cccc", "ddd")
     val maxLengthStr = list.maxBy { it: String -> it.length }
@@ -255,6 +258,7 @@ fun highFunTest() {
     //还有sum,reduce,fold等
 }
 
+
 fun lambdaTest2() {
     Thread(object : Runnable {
         override fun run() {
@@ -266,6 +270,7 @@ fun lambdaTest2() {
     Thread { TODO("Not yet implemented") }.start()
 }
 
+//TODO ?/?.
 fun nullTest() {
     val a = "abc"
 
@@ -308,6 +313,7 @@ fun letTest(study: Study?) {
     }
 }
 
+//TODO let/also
 fun letAndAlsoTest() {
     val person = Person("wjk", 18)
     println()
@@ -343,9 +349,7 @@ fun paramTest(num: Int, str: String = "abc") {
     println("$num----$str")
 }
 
-/**
- * with接收两个参数，一个作为上下文，一个lambda，并返回最后一行
- */
+//TODO   with接收两个参数，一个作为上下文，一个lambda，并返回最后一行
 fun withTest() {
     val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
     val builder = StringBuilder()
@@ -371,9 +375,8 @@ fun withTest() {
     println()
 }
 
-/**
- * run函数不能直接调用。接收一个lambda参数，并返回最后一行
- */
+
+//TODO run函数不能直接调用。接收一个lambda参数，并返回最后一行
 fun runTest() {
     val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
     val result = StringBuilder().run {
@@ -388,9 +391,8 @@ fun runTest() {
     println()
 }
 
-/**
- * apply和run相似，只是没有返回值，而且会自动返回调用对象本身
- */
+
+//TODO apply和run相似，只是没有返回值，而且会自动返回调用对象本身
 fun applyTest() {
     val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape")
     val result = StringBuilder().apply {
@@ -404,6 +406,7 @@ fun applyTest() {
     println()
 }
 
+//TODO 静态方法
 /**
  * 这样就可以用Util.staticFun1()来调用，不过这样写法会将整个类中所有方法都变成类似于静态方法的调用方式，但其实它并不是静态方法
  */
@@ -439,7 +442,21 @@ class Util2 {
 }
 
 
+//TODO 使用 lateinit 延迟加载，告诉编译器，会在晚些时候对这个变量进行初始化，就不用一开始将他赋值为null了
+private var student: Student? = null
+private lateinit var student1: Student
 
+fun lateinitTest() {
+    student = Student()
+    student?.doHomework()
+
+    //可使用 ::student1.isInitialized 判断是否已经初始化
+    if (!::student1.isInitialized) {
+        student1 = Student()
+    }
+    //此时也不用在使用?进行判空处理了
+    student1.doHomework()
+}
 
 
 
