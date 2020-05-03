@@ -465,6 +465,8 @@ fun lateinitTest() {
 fun kuoZhanTest() {
     val count = "ABC123xyz!@#".letterCount()
     println(count)
+    val str="abc".times(3)
+    println(str)
 }
 
 //TODO operator运算符重载测试

@@ -14,3 +14,19 @@ fun String.letterCount(): Int {
     }
     return count
 }
+
+/**
+ * time方式1：StringBuilder的repeat()
+ */
+operator fun String.times(n: Int): String {
+    val builder = StringBuilder()
+    repeat(n) {
+        builder.append(this)
+    }
+    return builder.toString()
+}
+
+/**
+ * time方式2：用String自己的repeat()函数实现
+ */
+//operator fun String.times(n: Int) = repeat(n);
