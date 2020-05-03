@@ -35,7 +35,7 @@ fun main() {
 //    listSetMapTest()
 
 //    foreachTest()
-    highFunTest()
+//    highFunTest()
 
 //    letAndAlsoTest()
 }
@@ -343,6 +343,9 @@ fun main2() {
 
     //顶层方法
 //    doSomething()
+
+    kuoZhanTest()
+    operatorTest()
 }
 
 fun paramTest(num: Int, str: String = "abc") {
@@ -458,10 +461,21 @@ fun lateinitTest() {
     student1.doHomework()
 }
 
+//TODO 扩展函数测试
+fun kuoZhanTest() {
+    val count = "ABC123xyz!@#".letterCount()
+    println(count)
+}
 
-
-
-
+//TODO operator运算符重载测试
+fun operatorTest() {
+    val money1 = Money(4)
+    val money2 = Money(10)
+    val money3 = money1 + money2
+    val money4 = money3 + 20
+    println(money3.value)
+    println(money4.value)
+}
 
 
 
