@@ -479,7 +479,7 @@ fun operatorTest() {
     println(money4.value)
 }
 
-
+//TODO 高阶函数详解(P-262)
 
 
 
