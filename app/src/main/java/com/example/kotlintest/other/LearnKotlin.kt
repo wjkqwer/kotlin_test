@@ -262,12 +262,12 @@ fun highFunTest() {
 fun lambdaTest2() {
     Thread(object : Runnable {
         override fun run() {
-            TODO("Not yet implemented")
+            "Not yet implemented"
         }
     }).start()
 
-    Thread(Runnable { TODO("Not yet implemented") }).start()
-    Thread { TODO("Not yet implemented") }.start()
+    Thread(Runnable { "Not yet implemented" }).start()
+    Thread { "Not yet implemented" }.start()
 }
 
 //TODO ?/?.
