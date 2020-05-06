@@ -1,8 +1,5 @@
 package com.example.kotlintest.other
 
-import com.example.kotlintest.other.Person
-import com.example.kotlintest.other.Study
-
 /**
  * Created by WJK On 2020/4/19
  */
