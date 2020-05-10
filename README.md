@@ -6,3 +6,5 @@ inline内联函数
 noinline
 crossinline
 
+P-312:高阶函数应用
+
