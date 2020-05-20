@@ -1,5 +1,0 @@
-# KotlinTest
-
-#### Description
-kotlin study
-
