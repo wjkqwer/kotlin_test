@@ -492,11 +492,15 @@ class LearnKotlin {
         add("abc")       // 正确
 //        add "abc"        // 错误：必须指定接收者
 
+        val list= listOf("aa","bb","cc")
+        if(list has "aa"){
+            println("has aa")
+        }
     }
 
     //TODO infix 中缀表示法，标有 infix 关键字的函数也可以使用中缀表示法（忽略该调用的点与圆括号）调用。
     /**
-     * 它们必须是成员函数或扩展函数；
+     * 它们必须是成员函数或扩展函数，不能是顶层函数；
      * 它们必须只有一个参数；
      * 其参数不得接受可变数量的参数且不能有默认值。
      * 中缀函数调用的优先级低于算术操作符、类型转换以及 rangeTo 操作符。
@@ -506,6 +510,7 @@ class LearnKotlin {
         println(str)
     }
 
+    infix fun <T> Collection<T>.has(element: T) = contains(element)
 }
 
 
