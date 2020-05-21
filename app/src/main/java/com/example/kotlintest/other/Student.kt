@@ -6,7 +6,7 @@ package com.example.kotlintest.other
 class Student(val sno: String, val grade: Int, name: String, age: Int) : Person(name, age),
     Study {
 
-    init {  //相当于java 构造函数中的步骤
+    init {  //相当于java 中的 {},初始化代码块，先于下面的构造器执行
         println("sno is $sno")
         println("grade is $grade")
         println()
