@@ -1,10 +1,9 @@
 package com.example.kotlintest
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kotlintest.jetpack.JetPackActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.lang.Exception
@@ -21,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         text_hello.text = "1122"
         text_hello.setOnClickListener {
             SecondActivity.actionStart(this, "123")
+        }
+
+        jetpackBtn.setOnClickListener {
+            JetPackActivity.actionStart(this)
         }
     }
 
