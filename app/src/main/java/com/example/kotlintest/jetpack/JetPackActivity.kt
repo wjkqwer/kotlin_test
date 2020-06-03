@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlintest.R
 import kotlinx.android.synthetic.main.activity_jet_pack.*
@@ -32,17 +33,22 @@ class JetPackActivity : AppCompatActivity() {
             MainViewModelFactory(counterReserved)
         ).get(MainViewModel::class.java)
 
+        //观察数据变化
+        viewModel.counter.observe(this, Observer { count ->
+            infoText.text = count.toString()
+        })
+
         plusOneBtn.setOnClickListener {
-            viewModel.counter++
-            refreshCounter()
+            viewModel.plusOne()
+//            refreshCounter()
         }
 
         clearBtn.setOnClickListener {
-            viewModel.counter = 0
-            refreshCounter()
+            viewModel.clear()
+//            refreshCounter()
         }
 
-        refreshCounter()
+//        refreshCounter()
 
     }
 
@@ -51,7 +57,7 @@ class JetPackActivity : AppCompatActivity() {
 //        sp.edit {
 //            putInt("count_reserved", viewModel.counter)
 //        }
-        sp.edit().putInt("count_reserved", viewModel.counter).apply()
+        sp.edit().putInt("count_reserved", viewModel.counter.value ?: 0).apply()
     }
 
     private fun refreshCounter() {
