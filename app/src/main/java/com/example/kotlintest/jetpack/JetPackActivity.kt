@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_jet_pack.*
  */
 class JetPackActivity : AppCompatActivity() {
 
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: JetViewModel
     lateinit var sp: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +30,8 @@ class JetPackActivity : AppCompatActivity() {
         //绑定可以传参的ViewModel
         viewModel = ViewModelProvider(
             this,
-            MainViewModelFactory(counterReserved)
-        ).get(MainViewModel::class.java)
+            JetViewModelFactory(counterReserved)
+        ).get(JetViewModel::class.java)
 
         //观察数据变化
         viewModel.counter.observe(this, Observer { count ->
