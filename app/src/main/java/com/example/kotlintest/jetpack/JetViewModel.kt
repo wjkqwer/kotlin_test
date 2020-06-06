@@ -2,6 +2,7 @@ package com.example.kotlintest.jetpack
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 /**
@@ -30,6 +31,17 @@ class JetViewModel(countReserved: Int) : ViewModel() {
 
     fun clear() {
         _counter.value = 0
+    }
+
+
+    private val userIdLiveData = MutableLiveData<String>()
+
+    val user: LiveData<User> = Transformations.switchMap(userIdLiveData) { userId ->
+        Repository.getUser(userId)
+    }
+
+    fun getUser(userId: String) {
+        userIdLiveData.value = userId
     }
 
 }
