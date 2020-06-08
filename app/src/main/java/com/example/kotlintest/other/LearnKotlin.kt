@@ -496,6 +496,9 @@ class LearnKotlin {
         if(list has "aa"){
             println("has aa")
         }
+
+        println(lazyValue)
+        println(lazyValue)
     }
 
     //TODO infix 中缀表示法，标有 infix 关键字的函数也可以使用中缀表示法（忽略该调用的点与圆括号）调用。
@@ -529,6 +532,16 @@ class LearnKotlin {
     //kotlin中匿名函数不——是——函——数。它是个对象，一个函数类型的对象。所以，才可以直接把它当做函数的参数来传递以及赋值给变量。
     //同理，Lambda 其实也是一个函数类型的对象而已。你能怎么使用双冒号加函数名，就能怎么使用匿名函数，以及怎么使用 Lambda 表达式。
     //在你知道了在 Kotlin 里「函数并不能传递，传递的是对象」和「匿名函数和 Lambda 表达式其实都是对象」这些本质之后，你以后去写 Kotlin 的高阶函数会非常轻松非常舒畅。
+
+    //TODO lateinit var和by lazy
+    //lateinit var只是让编译期忽略对属性未初始化的检查，后续在哪里以及何时初始化还需要开发者自己决定。
+    //by lazy真正做到了声明的同时也指定了延迟初始化时的行为，在属性被第一次被使用的时候能自动初始化。
+
+    val lazyValue: String by lazy {
+        println("computed!")
+        "Hello"
+    }
+
 }
 
 
