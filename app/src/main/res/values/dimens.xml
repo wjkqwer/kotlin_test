@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="mDpDimen1">1dp</dimen>
+    <dimen name="mDpDimen2">2dp</dimen>
+    <dimen name="mDpDimen3">3dp</dimen>
+    <dimen name="mDpDimen4">4dp</dimen>
+    <dimen name="mDpDimen5">5dp</dimen>
+    <dimen name="mDpDimen6">6dp</dimen>
+    <dimen name="mDpDimen7">7dp</dimen>
+    <dimen name="mDpDimen8">8dp</dimen>
+    <dimen name="mDpDimen9">9dp</dimen>
+    <dimen name="mDpDimen10">10dp</dimen>
+    <dimen name="mDpDimen11">11dp</dimen>
+    <dimen name="mDpDimen12">12dp</dimen>
+    <dimen name="mDpDimen13">13dp</dimen>
+    <dimen name="mDpDimen14">14dp</dimen>
+    <dimen name="mDpDimen15">15dp</dimen>
+    <dimen name="mDpDimen16">16dp</dimen>
+    <dimen name="mDpDimen17">17dp</dimen>
+    <dimen name="mDpDimen18">18dp</dimen>
+    <dimen name="mDpDimen19">19dp</dimen>
+    <dimen name="mDpDimen20">20dp</dimen>
+
+</resources>

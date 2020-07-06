@@ -23,4 +23,9 @@
         android:layout_height="wrap_content"
         android:text="to_jetpack_text"/>
 
+    <Button
+        android:id="@+id/viewPager2Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to_viewpager2"/>
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlintest.jetpack.JetPackActivity
+import com.example.kotlintest.viewpager2.Viewpager2Activity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.lang.Exception
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         jetpackBtn.setOnClickListener {
             JetPackActivity.actionStart(this)
+        }
+        viewPager2Btn.setOnClickListener {
+            Viewpager2Activity.actionStart(this)
         }
     }
 
