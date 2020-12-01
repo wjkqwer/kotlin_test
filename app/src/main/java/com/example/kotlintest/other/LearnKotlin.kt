@@ -186,7 +186,6 @@ class LearnKotlin {
         //读取
         val number = map1["aaa"]
 
-        //TODO 这个value的值怎么能有String 和 int？
         val map3 = mapOf("aaa" to "w", "bbb" to 2, "ccc" to 1)
         val map4 = mutableMapOf("aaa" to "w", "bbb" to 2, "ccc" to 1)
         map4["ddd"] = 3
