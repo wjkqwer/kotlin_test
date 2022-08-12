@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.example.kotlintest.jetpack.JetPackActivity
 import com.example.kotlintest.viewpager2.Viewpager2Activity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.*
 import java.lang.Exception
 import java.net.HttpURLConnection
@@ -123,6 +125,11 @@ class MainActivity : AppCompatActivity() {
     private fun showResponse(response:String){
         runOnUiThread {
             text_hello.text = response
+        }
+    }
+
+    private fun testLaunch(){
+        GlobalScope.launch {
         }
     }
 }
